@@ -1,0 +1,54 @@
+# ------------------data path------------------
+# Save path.
+save_path: "output/vitb32/flickr/sd_7_20"
+
+# ------------------dataset setting------------------
+# Dataset name. You shouldn't have to change it.
+dataset_name: "cross_coco"
+# Path of the dataset. coco / flickr dataset path.
+data_path: ""
+# train batch size.
+batch_size_train: 128
+# *val* batch size.
+batch_size_test: 128
+# test batch size.
+batch_size_testall: 128
+
+# ------------------model setting------------------
+# Path or name of clip pretrained model.
+# ['RN50', 'RN101', 'RN50x4', 'RN50x16', 'RN50x64', 'ViT-B/32', 'ViT-B/16', 'ViT-L/14', 'ViT-L/14@336px']
+clip_model: "ViT-B/32"
+distill_layer: 7
+# ------------------training setting------------------
+# is all gather
+is_all_gather: False
+
+# loss config
+loss_config: {
+
+  contrastive: {
+    is_on: True,
+    is_block_tau: False,
+    tau: 0.05,
+    tau_min: 0.01,
+    tau_max: 0.10,
+    rate: 1.00,
+    # mean or sum
+    contrastive_loss_mode: "mean",
+  },
+
+}
+
+
+# ------------------training setting------------------
+optimizer: { opt: adamW, lr: 0.00003, weight_decay: 0.00001 }
+schedular:
+  {
+    sched: cosine,
+    epochs: 40,
+    min_lr: 0.000001,
+    decay_rate: 1,
+    warmup_lr: 0.000001,
+    warmup_epochs: 5,
+    cooldown_epochs: 0,
+  }
