@@ -63,7 +63,7 @@ def main(args, config):
     # get model
     # when resume, state_dict is not None, so we can load model from state_dict
     print("Creating model")
-    model = icsd(args, config)
+    model = F3SD(args, config)
     msg = model.load_state_dict(state_dict)
     print(msg)
     model.to(device)
