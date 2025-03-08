@@ -194,7 +194,7 @@ def main(args, config):
             f.write("best epoch: %d\n\n" % best_epoch)
 
 
-def train(model, train_loader, optimizer, lr_scheduler, epoch, warmup_steps, device, config, txt_enc_assisant):
+def train(model, train_loader, optimizer, lr_scheduler, epoch, warmup_steps, device, config):
     model.train()
 
     # set metric logger
