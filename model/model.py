@@ -321,7 +321,7 @@ class F3SD(nn.Module):
         else:
             raise ValueError("Unknown fusion type: {}".format(fusion_type))
             
-    def forward(self, image, text, softlabel_image_features=None, softlabel_text_features=None, epoch=None, idx=None):
+    def forward(self, image, text, epoch=None, idx=None):
         rankNum = torch.distributed.get_rank()
         worldSize = torch.distributed.get_world_size()
         # clip tau to prevent overflow
