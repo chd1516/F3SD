@@ -1,7 +1,7 @@
 # F3SD
 
 # Overview
-We adopt CLIP containing dual-stream $L$ transformer layers to extract image and text features respectively. Firstly, we only open the last layer and an intermediate key layer, with all the other layers frozen. F$^{3}$-SD leverages the features of the last layer to distill the features of the intermediate layer. Secondly, based on the output features from self-distilled CLIP, we select key features including the global feature, Top-K feature and least similar (LS) feature. Next, we design Focal Feature Fusion (F$^{3}$) to adaptively fuse these key features, resulting in focused image and text features. Finally, we adopt the commonly used contrastive learning to train the image-text matching process.
+We adopt CLIP containing dual-stream $L$ transformer layers to extract image and text features respectively. Firstly, we only open the last layer and an intermediate key layer, with all the other layers frozen. F^{3}-SD leverages the features of the last layer to distill the features of the intermediate layer. Secondly, based on the output features from self-distilled CLIP, we select key features including the global feature, Top-K feature and least similar (LS) feature. Next, we design Focal Feature Fusion (F^{3}) to adaptively fuse these key features, resulting in focused image and text features. Finally, we adopt the commonly used contrastive learning to train the image-text matching process.
 
 
 ![](model/framework.png)
